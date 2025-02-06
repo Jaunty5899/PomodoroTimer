@@ -6,10 +6,20 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Counter</h1>
+      <h1>Pomodoro Timer</h1>
       <h2>{count}</h2>
       <button onClick={() => setCount(count + 1)}>Increment</button>
       <button onClick={() => setCount(count - 1)}>Decrement</button>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
+      <button></button>
     </div>
   );
 }
