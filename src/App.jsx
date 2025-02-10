@@ -4,14 +4,27 @@ import "./App.css";
 
 function App() {
   const [minute, setMinute] = useState(59);
-  const [second, setSecond] = useState(30);
+  const [second, setSecond] = useState(5);
 
-  const setMin = (value) => {
+  function setMin(value) {
     setMinute(value);
-  };
-  const setSec = (value) => {
+  }
+  function setSec(value) {
     setSecond(value);
-  };
+  }
+
+  // function runSeconds() {
+  setInterval(() => {
+    if (second === 0) {
+      if (minute === 0) {
+        clearInterval();
+      } else {
+        setMinute(minute - 1);
+      }
+    }
+    setSecond(second === 0 ? 59 : second - 1);
+  }, 1000);
+  // }
 
   return (
     <div className="container">

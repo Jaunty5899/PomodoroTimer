@@ -7,9 +7,7 @@ export default function TimeThing({ data, setFunction }) {
         <button onClick={() => setFunction(data > 0 ? data - 1 : 59)}>
           🔺
         </button>
-        <h2 onLoad={() => setInterval(() => setFunction(data - 1), 1000)}>
-          {data < 10 ? "0" + data : data}
-        </h2>
+        <h2>{data < 10 ? "0" + data : data}</h2>
         <button onClick={() => setFunction(data < 59 ? data + 1 : 0)}>
           🔻
         </button>
