@@ -1,25 +1,25 @@
 import { useState } from "react";
+import TimeThing from "./timeThing";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [minute, setMinute] = useState(59);
+  const [second, setSecond] = useState(30);
+
+  const setMin = (value) => {
+    setMinute(value);
+  };
+  const setSec = (value) => {
+    setSecond(value);
+  };
 
   return (
     <div className="container">
-      <h1>Pomodoro Timer</h1>
-      <h2>{count}</h2>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
-      <button></button>
+      <div className="timePiece">
+        <TimeThing data={minute} setFunction={setMin} />
+        <span className="separator">:</span>
+        <TimeThing data={second} setFunction={setSec} />
+      </div>
     </div>
   );
 }
