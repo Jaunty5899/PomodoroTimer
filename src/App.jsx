@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TimeThing from "./timeThing";
 import "./App.css";
 
 function App() {
-  const [minute, setMinute] = useState(59);
-  const [second, setSecond] = useState(5);
+  const [minute, setMinute] = useState(25);
+  const [second, setSecond] = useState(0);
+  const [running, setRunning] = useState(false);
 
   function setMin(value) {
     setMinute(value);
@@ -12,19 +13,26 @@ function App() {
   function setSec(value) {
     setSecond(value);
   }
-
-  // function runSeconds() {
-  setInterval(() => {
-    if (second === 0) {
-      if (minute === 0) {
-        clearInterval();
-      } else {
-        setMinute(minute - 1);
-      }
+  useEffect(() => {
+    if (running) {
+      runTimePiece();
     }
-    setSecond(second === 0 ? 59 : second - 1);
-  }, 1000);
-  // }
+  });
+
+  function runTimePiece() {
+    setInterval(() => {
+      if (second === 0) {
+        if (minute === 0) {
+          clearInterval();
+        } else {
+          setMinute(minute - 1);
+        }
+      }
+      setSecond(second === 0 ? 59 : second - 1);
+      !running && clearInterval();
+      console.log(minute, second);
+    }, 1000);
+  }
 
   return (
     <div className="container">
@@ -32,6 +40,14 @@ function App() {
         <TimeThing data={minute} setFunction={setMin} />
         <span className="separator">:</span>
         <TimeThing data={second} setFunction={setSec} />
+        <button
+          onClick={() => {
+            runTimePiece();
+            setRunning(running ? false : true);
+          }}
+        >
+          {running ? "Stop" : "Start"}
+        </button>
       </div>
     </div>
   );
