@@ -1,9 +1,5 @@
-.timePiece {
+.container {
   display: flex;
   gap: 10px;
-  align-items: center;
-}
-.separator {
-  font-size: 1.5rem;
-  font-weight: 900;
+  text-align: center;
 }
