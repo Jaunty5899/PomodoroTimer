@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import TimeThing from "./timeThing";
+import TimeThing from "./TimeThing";
 import "./ClockSegment.css";
 import audio from "./assets/alarm.mp3";
 
