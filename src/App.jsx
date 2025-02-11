@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import TimeThing from "./timeThing";
 import "./App.css";
+import audio from "./assets/alarm.mp3";
 
 function App() {
-  const [minute, setMinute] = useState({ num: 1 });
-  const [second, setSecond] = useState({ num: 10 });
+  const [minute, setMinute] = useState({ num: 25 });
+  const [second, setSecond] = useState({ num: 0 });
   const [running, setRunning] = useState(false);
 
   function setMin(value) {
@@ -14,12 +15,12 @@ function App() {
     setSecond({ num: value });
   }
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timeout = setTimeout(() => {
       if (second.num === 0) {
         if (minute.num === 0) {
           setRunning(false);
           return () => {
-            clearInterval(interval);
+            clearTimeout(timeout);
           };
         } else {
           setMinute({ num: minute.num - 1 });
@@ -27,16 +28,15 @@ function App() {
       }
       setSecond(second.num === 0 ? { num: 59 } : { num: second.num - 1 });
     }, 1000);
-    if (!running) {
-      clearInterval(interval);
-    }
+    !running && clearTimeout(timeout);
     return () => {
-      clearInterval(interval);
+      clearTimeout(timeout);
     };
   }, [running, minute, second]);
 
   return (
     <div className="container">
+      <audio src={audio}></audio>
       <div className="timePiece">
         <TimeThing data={minute.num} setFunction={setMin} running={running} />
         <span className="separator">:</span>
