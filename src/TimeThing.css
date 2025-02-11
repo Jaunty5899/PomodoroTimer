@@ -3,3 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
+.button:disabled {
+  background-color: #ccc;
+  color: #666;
+}

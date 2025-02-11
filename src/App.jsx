@@ -3,46 +3,46 @@ import TimeThing from "./timeThing";
 import "./App.css";
 
 function App() {
-  const [minute, setMinute] = useState(25);
-  const [second, setSecond] = useState(0);
+  const [minute, setMinute] = useState({ num: 1 });
+  const [second, setSecond] = useState({ num: 10 });
   const [running, setRunning] = useState(false);
 
   function setMin(value) {
-    setMinute(value);
+    setMinute({ num: value });
   }
   function setSec(value) {
-    setSecond(value);
+    setSecond({ num: value });
   }
   useEffect(() => {
-    if (running) {
-      runTimePiece();
-    }
-  });
-
-  function runTimePiece() {
-    setInterval(() => {
-      if (second === 0) {
-        if (minute === 0) {
-          clearInterval();
+    const interval = setInterval(() => {
+      if (second.num === 0) {
+        if (minute.num === 0) {
+          setRunning(false);
+          return () => {
+            clearInterval(interval);
+          };
         } else {
-          setMinute(minute - 1);
+          setMinute({ num: minute.num - 1 });
         }
       }
-      setSecond(second === 0 ? 59 : second - 1);
-      !running && clearInterval();
-      console.log(minute, second);
+      setSecond(second.num === 0 ? { num: 59 } : { num: second.num - 1 });
     }, 1000);
-  }
+    if (!running) {
+      clearInterval(interval);
+    }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [running, minute, second]);
 
   return (
     <div className="container">
       <div className="timePiece">
-        <TimeThing data={minute} setFunction={setMin} />
+        <TimeThing data={minute.num} setFunction={setMin} running={running} />
         <span className="separator">:</span>
-        <TimeThing data={second} setFunction={setSec} />
+        <TimeThing data={second.num} setFunction={setSec} running={running} />
         <button
           onClick={() => {
-            runTimePiece();
             setRunning(running ? false : true);
           }}
         >
