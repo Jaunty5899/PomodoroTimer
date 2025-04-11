@@ -8,6 +8,50 @@ function App() {
       <ClockSegment min={25}>Focus</ClockSegment>
       <ClockSegment min={5}>Short Break</ClockSegment>
       <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
+      <h1>Pomodoro Clock</h1>
+      <ClockSegment min={25}>Focus</ClockSegment>
+      <ClockSegment min={5}>Short Break</ClockSegment>
+      <ClockSegment min={15}>Long Break</ClockSegment>
     </div>
   );
 }
